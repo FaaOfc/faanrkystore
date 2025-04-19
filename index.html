@@ -2,192 +2,174 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Faanrky Store</title>
-  <link rel="icon" type="image/x-icon" href="./20250325_070407.jpg" class="img-fluid">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: white;
+      margin: 0; padding: 0;
       background: black;
-    }
-
-    #background-video, #background-image {
-      position: fixed;
-      top: 0; left: 0;
-      width: 120%;
-      height: 120%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: auto;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.1);
-    }
-
-    .profile, .qris, .product-list {
-      margin-bottom: 30px;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
       color: white;
-      font-size: 20px;
+    }
+
+    .category-section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      margin-left: 20px;
+    }
+
+    .product-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px;
     }
 
     .product {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+      flex: 0 0 auto;
+      width: 18%;
+      margin: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
     }
 
-    .product-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+    .product img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
-.social-icons a {
-  margin: 0 10px;
-  color: white;
-  font-size: 24px;
-  transition: transform 0.2s;
-}
+    .btn {
+      display: block;
+      margin: 5px auto;
+      padding: 8px;
+      width: 90%;
+      background: black;
+      color: white;
+      border: 2px solid white;
+      border-radius: 20px;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-.social-icons a:hover {
-  transform: scale(1.2);
-  color: #ccc;
-}
-    
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px 0;
-  background: black;
-  color: white;
-  border: 3px solid white;
-  border-radius: 20px;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-    
-.btn:hover {
-  background: white;
-  color: black;
-  transform: scale(1.02);
-}
+    .desc {
+      display: none;
+      font-size: 0.9em;
+      margin-top: 10px;
+      color: #ccc;
+    }
 
-.btn:active {
-  transform: scale(0.96);
-  background: #222;
-  color: white;
-}
+    .slider-nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 20px;
+    }
 
-.desc {
-  display: none;
-  margin-top: 10px;
-  font-style: italic;
-  color: #ccc;
-  text-align: center;
-}
+    .slider-nav button {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
 
-<!-- Ganti ini sesuai kebutuhan -->
-<!-- <video autoplay muted loop id="background-video">
-<!--  <source src="background.mp4" type="video/mp4">
-<!-- </video>
-<!-- Jika pakai foto, gunakan ini -->
-<img src="20250419_091623.jpg" id="background-image">
-
 <div class="container">
-  <div class="profile" style="text-align:center;">
-    <img src="20250325_070407.jpg" alt="Profile" style="width:100px; height:100px; border-radius:50%; border: 3px solid white; box-shadow: 0 0 10px white;">
-    <h1>Faanrky Store</h1>
-    <p>Jika Ragu Jangan Beli, Hanya Menerima Yang Pasti</p>
-    <div class="social-icons">
-    <a href="https://instagram.com/nama_ig" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://twitter.com/nama_tw" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://tiktok.com/@nama_tt" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-   </div>
+
+  <div class="category-section">
+    <h2>Panel</h2>
+    <div class="slider-nav">
+      <button onclick="scrollLeft('panel')">←</button>
+      <button onclick="scrollRight('panel')">→</button>
+    </div>
+    <div class="product-slider" id="panel"></div>
   </div>
 
-  <div class="qris" style="text-align:center;">
-  <img src="qris.png" alt="QRIS" style="width:250px;">
-  <p><strong>PAYMENT QRIS</strong><br>Bayar sesuai nominal, lalu SS dan kirim ke WhatsApp Owner. Note: lebihkan 300 perak untuk admin APK.</p>
-  <a class="btn" href="https://wa.me/6281234567890">WhatsApp Owner</a>
+  <div class="category-section">
+    <h2>Jasa</h2>
+    <div class="slider-nav">
+      <button onclick="scrollLeft('jasa')">←</button>
+      <button onclick="scrollRight('jasa')">→</button>
+    </div>
+    <div class="product-slider" id="jasa"></div>
   </div>
 
-  <div class="product-list" id="productList"></div>
+  <div class="category-section">
+    <h2>Topup</h2>
+    <div class="slider-nav">
+      <button onclick="scrollLeft('topup')">←</button>
+      <button onclick="scrollRight('topup')">→</button>
+    </div>
+    <div class="product-slider" id="topup"></div>
+  </div>
+
 </div>
 
 <script>
-  const products = [
-    {
-      name: "Panel Publik",
-      price: 5000,
-      image: "20250325_070407.jpg",
-      desc: "Panel publik 24 jam nonstop. Cocok untuk uji coba dan bot kecil."
-    },
-    {
-      name: "Panel Privat",
-      price: 10000,
-      image: "20250325_070407.jpg",
-      desc: "Privasi lebih terjaga, performa lebih baik dari publik."
-    },
-    {
-      name: "Tangan Kanan Panel",
-      price: 30000,
-      image: "20250325_070407.jpg",
-      desc: "Performa tinggi dan support maksimal. Ideal untuk proyek besar."
-    },
-    {
-      name: "Tangan Kiri Panel",
-      price: 20000,
-      image: "20250325_070407.jpg",
-      desc: "Panel stabil dan ekonomis. Cocok untuk kebutuhan sedang."
-    }
-  ];
+  const products = {
+    panel: [
+      { name: "Produk1", price: 5000, image: "produk1.jpg", desc: "Deskripsi produk 1" },
+      { name: "Produk2", price: 6000, image: "produk2.jpg", desc: "Deskripsi produk 2" },
+      { name: "Produk3", price: 7000, image: "produk3.jpg", desc: "Deskripsi produk 3" },
+      { name: "Produk4", price: 8000, image: "produk4.jpg", desc: "Deskripsi produk 4" },
+      { name: "Produk5", price: 9000, image: "produk5.jpg", desc: "Deskripsi produk 5" },
+      { name: "Produk6", price: 10000, image: "produk6.jpg", desc: "Deskripsi produk 6" },
+    ],
+    jasa: [
+      { name: "Jasa1", price: 15000, image: "jasa1.jpg", desc: "Deskripsi jasa 1" },
+      { name: "Jasa2", price: 20000, image: "jasa2.jpg", desc: "Deskripsi jasa 2" },
+    ],
+    topup: [
+      { name: "Topup1", price: 10000, image: "topup1.jpg", desc: "Topup untuk game A" },
+      { name: "Topup2", price: 20000, image: "topup2.jpg", desc: "Topup untuk game B" },
+    ]
+  };
 
   function renderProducts() {
-  const list = document.getElementById("productList");
-  list.innerHTML = "";
-  products.forEach((p, i) => {
-    list.innerHTML += `
-      <div class="product">
-        <img src="${p.image}" alt="${p.name}" style="width:100px; height:100px; border-radius:10px;">
-        <h3>${p.name}</h3>
-        <p>Rp${p.price.toLocaleString()}</p>
-        <a class="btn" href="https://wa.me/6281234567890">Beli</a>
-        <button class="btn" onclick="toggleDesc(${i})">Lihat Deskripsi</button>
-        <div class="desc" id="desc-${i}">${p.desc}</div>
-      </div>
-    `;
-  });
+    for (const kategori in products) {
+      const container = document.getElementById(kategori);
+      products[kategori].forEach((p, i) => {
+        const div = document.createElement("div");
+        div.className = "product";
+        div.innerHTML = `
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>Rp${p.price.toLocaleString()}</p>
+          <a class="btn" href="https://wa.me/6281234567890">Beli</a>
+          <button class="btn" onclick="toggleDesc('${kategori}', ${i})">Lihat Deskripsi</button>
+          <div class="desc" id="desc-${kategori}-${i}">${p.desc}</div>
+        `;
+        container.appendChild(div);
+      });
+    }
   }
 
-  function toggleDesc(index) {
-  const desc = document.getElementById(`desc-${index}`);
-  desc.style.display = desc.style.display === "block" ? "none" : "block";
+  function toggleDesc(cat, i) {
+    const el = document.getElementById(`desc-${cat}-${i}`);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+  }
+
+  function scrollLeft(id) {
+    document.getElementById(id).scrollBy({ left: -300, behavior: 'smooth' });
+  }
+
+  function scrollRight(id) {
+    document.getElementById(id).scrollBy({ left: 300, behavior: 'smooth' });
   }
 
   renderProducts();
 </script>
+
 </body>
-  </html>
+</html>

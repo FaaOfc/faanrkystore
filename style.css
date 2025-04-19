@@ -90,11 +90,13 @@ body {
   border: 2px solid white;
   border-radius: 15px;
   padding: 15px;
-  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .product img {
@@ -104,22 +106,47 @@ body {
   border-radius: 10px;
 }
 
+.title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.title-group h3,
+.title-group h4 {
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  color: white;
+}
+
+.btn-group {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
 .btn {
   font-family: 'Bungee', cursive;
   display: block;
   padding: 10px;
-  margin: 10px auto 0 auto;
   background: black;
   color: white;
   border: 2px solid white;
   border-radius: 20px;
   text-decoration: none;
   transition: 0.3s;
-  max-width: 200px;
   width: 100%;
   text-align: center;
   box-sizing: border-box;
   font-size: 10px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -168,23 +195,4 @@ body {
 
 .footer a:hover {
   text-decoration: underline;
-}
-
-/* Tambahan untuk h3 & h4 berdempetan */
-.title-group {
-  display: flex;
-  gap: 5px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.title-group h3,
-.title-group h4 {
-  margin: 0;
-  padding: 5px 10px;
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
-  font-size: 14px;
-  color: white;
-}
+  }

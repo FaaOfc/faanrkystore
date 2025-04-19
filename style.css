@@ -80,7 +80,7 @@ body {
 }
 
 .desc.show {
-  max-height: 500px;
+  max-height: 1000px;
   opacity: 1;
   padding-top: 10px;
 }

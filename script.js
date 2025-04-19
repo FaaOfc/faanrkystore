@@ -64,18 +64,20 @@ function renderProducts() {
     container.appendChild(section);
 
     const slider = section.querySelector(".slider");
-    categories[category].forEach((p, i) => {
-      const formattedDesc = p.desc.replace(/\n/g, "<br>");
-      slider.innerHTML += `
-        <div class="product">
-          <img src="${p.image}" alt="${p.name}">
-          <h3>${p.name}</h3>
-          <h4>${p.subname}</h4>
-          <p>Rp${p.price.toLocaleString()}</p>
-          <a class="btn" href="https://wa.me/62895404774374">Beli</a>
-          <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
-          <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
-        </div>
+categories[category].forEach((p, i) => {
+  const formattedDesc = p.desc.replace(/\n/g, "<br>");
+  slider.innerHTML += `
+    <div class="product">
+      <img src="${p.image}" alt="${p.name}">
+      <div class="title-group">
+        <h3>${p.name}</h3>
+        <h4>${p.subname}</h4>
+      </div>
+      <p>Rp${p.price.toLocaleString()}</p>
+      <a class="btn" href="https://wa.me/62895404774374">Beli</a>
+      <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
+      <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
+    </div>
       `;
     });
   }

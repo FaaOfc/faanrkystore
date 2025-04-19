@@ -48,11 +48,12 @@
     }
 
     .category {
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
 
     .category h2 {
       margin-bottom: 10px;
+      text-align: left;
     }
 
     .slider {
@@ -60,13 +61,25 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       gap: 15px;
+      padding-bottom: 5px;
     }
 
     .slider::-webkit-scrollbar {
       display: none;
     }
 
-    
+    .product {
+      min-width: 200px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid white;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
 
     .product img {
       width: 100%;
@@ -85,6 +98,8 @@
       border-radius: 20px;
       text-decoration: none;
       transition: 0.3s;
+      max-width: 160px;
+      width: 100%;
     }
 
     .btn:hover {
@@ -99,42 +114,30 @@
       color: #ccc;
     }
 
-    .product {
-  min-width: 200px;
-  background: rgba(0, 0, 0, 0.4); /* transparan gelap biar border kontras */
-  border: 2px solid white;       /* pastikan ini ada */
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* tambahan agar ada efek glow */
-}
-
-.product .btn {
-  width: 100%; /* opsional: biar tombol rata dengan lebar produk */
-  max-width: 160px; /* opsional: batasi agar tidak terlalu lebar */
-}x;
+    .nav-btns {
+      text-align: right;
+      margin-bottom: 10px;
     }
 
-    .nav-btns{
-text-align: right;
-margin-bottom: 10px;
-    }
     .nav-btns button {
       background: black;
       color: white;
       border: 2px solid white;
       border-radius: 20px;
       padding: 5px 15px;
-      margin-left: 5px;
+      margin-left: 3px;
       cursor: pointer;
     }
 
     .nav-btns button:hover {
       background: white;
       color: black;
+    }
+
+    .category-desc {
+      font-size: 14px;
+      color: #ddd;
+      margin: -10px 0 20px 0;
     }
   </style>
 </head>
@@ -162,6 +165,12 @@ margin-bottom: 10px;
   </div>
 
   <script>
+    const categoryDescriptions = {
+      "Panel": "Layanan panel bot hosting berkualitas dan stabil.",
+      "Jasa": "Jasa tambahan untuk support dan kebutuhan proyek kamu.",
+      "Topup": "Layanan isi saldo untuk berbagai platform dan keperluan."
+    };
+
     const categories = {
       "Panel": [
         { name: "Produk1", price: 5000, image: "produk1.jpg", desc: "Deskripsi produk1" },
@@ -189,16 +198,19 @@ margin-bottom: 10px;
       for (const category in categories) {
         const section = document.createElement("div");
         section.classList.add("category");
-        section.innerHTML = `<h2>${category}</h2>
-        <div class="nav-btns">
-          <button onclick="scrollSlider('${category}', -1)">←</button>
-          <button onclick="scrollSlider('${category}', 1)">→</button>
-        </div>
-        <div class="slider" id="${category}"></div>`;
+
+        section.innerHTML = `
+          <h2>${category}</h2>
+          <div class="category-desc">${categoryDescriptions[category] || ""}</div>
+          <div class="nav-btns">
+            <button onclick="scrollSlider('${category}', -1)">←</button>
+            <button onclick="scrollSlider('${category}', 1)">→</button>
+          </div>
+          <div class="slider" id="${category}"></div>
+        `;
         container.appendChild(section);
 
         const slider = section.querySelector(".slider");
-
         categories[category].forEach((p, i) => {
           slider.innerHTML += `
             <div class="product">
@@ -208,7 +220,8 @@ margin-bottom: 10px;
               <a class="btn" href="https://wa.me/6281234567890">Beli</a>
               <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
               <div class="desc" id="desc-${category}-${i}">${p.desc}</div>
-            </div>`;
+            </div>
+          `;
         });
       }
     }
@@ -220,7 +233,7 @@ margin-bottom: 10px;
 
     function scrollSlider(cat, dir) {
       const slider = document.getElementById(cat);
-      slider.scrollLeft += dir * 220; // scroll width per item (plus gap)
+      slider.scrollLeft += dir * 220;
     }
 
     renderProducts();

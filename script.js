@@ -73,7 +73,7 @@ categories[category].forEach((p, i) => {
         <h3>${p.name}</h3>
         <h4>${p.subname}</h4>
       </div>
-      <p>Rp${p.price.toLocaleString()}</p>
+      <h4>Rp${p.price.toLocaleString()}</h4>
       <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
       <div class="btn-group">
         <a class="btn" href="https://wa.me/62895404774374">Beli</a>

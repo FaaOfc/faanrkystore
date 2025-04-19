@@ -75,6 +75,7 @@ body {
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
   font-style: italic;
   margin-top: 10px;
+  text-align: center;
   color: #ccc;
 }
 
@@ -109,6 +110,7 @@ body {
 .title-group {
   display: flex;
   flex-direction: column;
+  border: 2px solid white;
   align-items: center;
   gap: 5px;
   margin-top: 10px;
@@ -119,7 +121,7 @@ body {
   margin: 0;
   padding: 5px 10px;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   font-size: 14px;
   text-align: center;
   color: white;

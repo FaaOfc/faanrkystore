@@ -40,7 +40,7 @@ const categories = {
     { name: "Call Of Duty Mobile", price: 5000, image: "20250325_070407.jpg", desc: "31 🪙 = Rp 5.000\n63 🪙 = Rp 10.000\n128 🪙 = Rp 19.000\n321 🪙 = Rp 46.000\n645 🪙 = Rp 96.000\n800 🪙 = Rp 108.000\n1373 🪙 = Rp 179.000\n2060 🪙 = Rp 268.000\n3564 🪙 = Rp 446.000\n5618 🪙 = Rp 651.000\n5619 🪙 = Rp 696.000\n7656 🪙 = Rp 891.000\n15312 🪙 = Rp 1.736.000\n38280 🪙 = Rp. 4.339.000" },
     { name: "PUBG Mobile", price: 1600, image: "20250325_070407.jpg", desc: "60 💴 = Rp 16.000\n300 + 25 💴 = Rp 72.000\n600 + 60 💴 = Rp 143.000\n1500 + 300 💴 = Rp 358.000\n3000 + 850 💴 = Rp 721.000\n6000 + 2100 💴 = Rp 1.428.000" },
     { name: "Genshin - Genesis Crystals", price: 1200, image: "20250325_070407.jpg", desc: "💎60 = Rp 12.000\n💎300 + 30 = Rp 60.000\n💎980 + 110 = Rp 179.000\n💎1280 + 140 = Rp 237.000\n💎1980 + 260 = Rp 386.000\n💎3280 + 600 = Rp 593.000\n💎4260 + 710 = Rp 770.000\n💎6480 + 1600 = Rp 1.185.000\n💎9760 + 2200 = Rp 1.776.000" },
-    { name: "Genshin - Blessing Welkin Moon", price: 60000, image: "20250325_070407.jpg", desc: "1X Blessing Welkin Moon = Rp 60.000\n2X Blessing Welkin Moon = Rp 119.000\n3X Blessing Welkin Moon = Rp 178.000\n4X Blessing Welkin Moon = Rp 237.000\n5X Blessing Welkin Moon = Rp 296.000" }
+    { name: "Genshin - Blessing Welkin Moon", price: 60000, image: "20250325_070407.jpg", desc: "1X Blessing Welkin Moon\n-Rp 60.000-\n2X Blessing Welkin Moon\n-Rp 119.000-\n3X Blessing Welkin Moon\n-Rp 178.000-\n4X Blessing Welkin Moon\n-Rp 237.000-\n5X Blessing Welkin Moon\n-Rp 296.000-" }
   ]
 };
 

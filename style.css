@@ -86,7 +86,7 @@ body {
 }
 
 .product {
-  min-width: 200px;
+  min-width: 210px;
   background: rgba(0, 0, 0, 0.4);
   border: 2px solid white;
   border-radius: 15px;
@@ -116,7 +116,8 @@ body {
 }
 
 .title-group h3,
-.title-group h4 {
+.title-group h4,
+.title-group p {
   margin: 0;
   padding: 5px 10px;
   border-radius: 15px;

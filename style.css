@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee', cursive !important;
   background: url('20250419_091623.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
@@ -103,7 +103,6 @@ body {
   object-fit: cover;
   border-radius: 10px;
 }
-
 .btn {
   display: block;
   padding: 10px;

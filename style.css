@@ -118,6 +118,7 @@ body {
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  font-size: 14px;
 }
 .btn:hover {
   background: white;

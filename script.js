@@ -74,12 +74,14 @@ categories[category].forEach((p, i) => {
         <h4>${p.subname}</h4>
       </div>
       <p>Rp${p.price.toLocaleString()}</p>
-      <a class="btn" href="https://wa.me/62895404774374">Beli</a>
-      <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
       <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
+      <div class="btn-group">
+        <a class="btn" href="https://wa.me/62895404774374">Beli</a>
+        <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
+      </div>
     </div>
-      `;
-    });
+  `;
+});
   }
 }
 

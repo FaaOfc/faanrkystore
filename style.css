@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Bungee', cursive !important;
+  font-family: 'Bungee', cursive;
   background: url('20250419_091623.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
@@ -104,6 +104,7 @@ body {
   border-radius: 10px;
 }
 .btn {
+  font-family: 'Bungee', cursive;
   display: block;
   padding: 10px;
   margin: 10px auto 0 auto;
@@ -118,7 +119,6 @@ body {
   text-align: center;
   box-sizing: border-box;
 }
-
 .btn:hover {
   background: white;
   color: black;

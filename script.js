@@ -64,24 +64,24 @@ function renderProducts() {
     container.appendChild(section);
 
     const slider = section.querySelector(".slider");
-categories[category].forEach((p, i) => {
-  const formattedDesc = p.desc.replace(/\n/g, "<br>");
-  slider.innerHTML += `
-    <div class="product">
-      <img src="${p.image}" alt="${p.name}">
-      <div class="title-group">
-        <h3>${p.name}</h3>
-        <h4>${p.subname}</h4>
-      </div>
-      <p>Rp. ${p.price.toLocaleString()}</p>
-      <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
-      <div class="btn-group">
-        <a class="btn" href="https://wa.me/62895404774374">Beli</a>
-        <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
-      </div>
-    </div>
-  `;
-});
+    categories[category].forEach((p, i) => {
+      const formattedDesc = p.desc.replace(/\n/g, "<br>");
+      slider.innerHTML += `
+        <div class="product">
+          <img src="${p.image}" alt="${p.name}">
+          <div class="title-group">
+            <h3>${p.name}</h3>
+            <h4>${p.subname}</h4>
+          </div>
+          <p>Rp. ${p.price.toLocaleString()}</p>
+          <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
+          <div class="btn-group">
+            <a class="btn" href="https://wa.me/62895404774374">Beli</a>
+            <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
+          </div>
+        </div>
+      `;
+    });
   }
 }
 
@@ -95,8 +95,21 @@ function scrollSlider(cat, dir) {
   slider.scrollLeft += dir * 220;
 }
 
-renderProducts();
+document.addEventListener("DOMContentLoaded", function () {
+  const qrisBox = document.getElementById("qrisBox");
+  const toggleBtn = document.getElementById("toggleQrisBtn");
 
+  toggleBtn.addEventListener("click", function () {
+    qrisBox.classList.toggle("show");
+    if (qrisBox.classList.contains("show")) {
+      toggleBtn.textContent = "Sembunyikan QRIS";
+    } else {
+      toggleBtn.textContent = "Tampilkan QRIS";
+    }
+  });
+});
+
+renderProducts()
 
 
   //  { name: "barang", price: 1000, image: "20250325_070407.jpg", desc: "Desk" },

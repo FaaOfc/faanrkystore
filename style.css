@@ -178,6 +178,18 @@ body {
   margin: -10px 0 20px 0;
 }
 
+/* Animasi Fade */
+.fade {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 .footer {
   text-align: center;
   padding: 15px;

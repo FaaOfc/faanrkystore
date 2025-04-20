@@ -181,12 +181,8 @@ body {
 .footer {
   text-align: center;
   padding: 15px;
-  font-size: 0.9rem;
+  font-size: 5px;
   color: #888;
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid white;
-  border-radius: 5px;
-  gap: 5px;
   background-color: transparent;
 }
 

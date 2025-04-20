@@ -40,6 +40,24 @@ body {
   margin-bottom: 40px;
 }
 
+.qris-box.fade {
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease, height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
+}
+
+.qris-box.fade.show {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
 .qris img {
   width: 100%;
   max-width: 300px;

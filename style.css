@@ -191,12 +191,10 @@ body {
 
 .nav-btns-l {
   text-align: left;
-  margin-bottom: 10px;
 }
 
 .nav-btns-r {
   text-align: right;
-  margin-bottom: 0px;
 }
 
 .nav-btns-r button,
@@ -214,7 +212,6 @@ body {
   background: white;
   color: black;
 }
-
 .category-desc {
   font-size: 14px;
   color: #ddd;

@@ -183,7 +183,12 @@ body {
   color: black;
 }
 
-.nav-btns {
+.nav-btns-l {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.nav-btns-r {
   text-align: right;
   margin-bottom: 10px;
 }

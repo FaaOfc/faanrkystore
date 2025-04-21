@@ -82,7 +82,9 @@ body {
 
 .category h2 {
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
+  border: 3px solid white;
+  border-radius: 15px;
 }
 
 .slider {

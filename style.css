@@ -182,6 +182,12 @@ body {
   background: white;
   color: black;
 }
+.nav-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
 .nav-btns-l {
   text-align: left;

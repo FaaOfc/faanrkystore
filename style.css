@@ -75,9 +75,6 @@ body {
   font-size: 14px;
   text-align: center;
   color: white;
-  border: 3px solid white;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
 }
 
 .category h2 {

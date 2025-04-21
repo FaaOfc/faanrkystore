@@ -53,16 +53,18 @@ function renderProducts() {
     section.classList.add("category");
 
     section.innerHTML = `
-      <h2>${category}</h2>
-      <div class="category-desc">${categoryDescriptions[category] || ""}</div>
-      <div class="nav-btns-l">
-        <button onclick="scrollSlider('${category}', -1)"><-</button>
-        <div class="nav-btns-r">
-        <button onclick="scrollSlider('${category}', 1)">-></button>
-        </div>
-      </div>
-      <div class="slider" id="${category}"></div>
-    `;
+  <h2>${category}</h2>
+  <div class="category-desc">${categoryDescriptions[category] || ""}</div>
+  <div class="nav-btns">
+    <div class="nav-btns-l">
+      <button onclick="scrollSlider('${category}', -1)"><-</button>
+    </div>
+    <div class="nav-btns-r">
+      <button onclick="scrollSlider('${category}', 1)">-></button>
+    </div>
+  </div>
+  <div class="slider" id="${category}"></div>
+`;
     container.appendChild(section);
 
     const slider = section.querySelector(".slider");

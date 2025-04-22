@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 renderProducts()
 
-
+//
   //  { name: "barang", price: 1000, image: "20250325_070407.jpg", desc: "Desk" },
  //   { name: "barang", price: 1000, image: "20250325_070407.jpg", desc: "Desk" },
  //   { name: "barang", price: 1000, image: "20250325_070407.jpg", desc: "Desk" },

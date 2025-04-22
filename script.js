@@ -53,15 +53,34 @@ function renderProducts() {
     section.classList.add("category");
 
     section.innerHTML = `
-  <h2>${category}</h2>
-  <div class="category-desc">${categoryDescriptions[category] || ""}</div>
-  <div class="slider" id="${category}"></div>
-`;
+      <h2>${category}</h2>
+      <div class="category-desc">${categoryDescriptions[category] || ""}</div>
+      <div class="slider" id="${category}"></div>
+    `;
     container.appendChild(section);
 
     const slider = section.querySelector(".slider");
     categories[category].forEach((p, i) => {
       const formattedDesc = p.desc.replace(/\n/g, "<br>");
+
+      // Membuat pesan WhatsApp yang berbeda berdasarkan kategori
+      let message = "";
+      if (category.toLowerCase() === "panel") {
+        message = `Halo, Saya Ingin Membeli ${p.name} ${p.subname}`;
+      } else if (category.toLowerCase() === "topup") {
+        message = `Halo, Saya Ingin Membeli ${p.name} ${p.subname} Dengan Nominal (Isi Nominal)`;
+      } else if (category.toLowerCase() === "tik tok") {
+        message = `Halo, Saya Ingin Membeli ${p.name} ${p.subname} Dengan Jumlah (Isi Nominal)`;
+      } else if (category.toLowerCase() === "instagram") {
+        message = `Halo, Saya Ingin Membeli ${p.name} ${p.subname} Dengan Jumlah (Isi Nominal)`;
+      } else if (category.toLowerCase() === "jasa") {
+        message = `Halo, Saya Ingin Membeli ${p.name} ${p.subname}`;
+      } else {
+        message = `Halo, Saya Ingin Membeli ${p.name} ${p.subname}`; // fallback default
+      }
+
+      const whatsappLink = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
+
       slider.innerHTML += `
         <div class="product">
           <img src="${p.image}" alt="${p.name}">
@@ -72,7 +91,7 @@ function renderProducts() {
           <p>Rp. ${p.price.toLocaleString()}</p>
           <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>
           <div class="btn-group">
-            <a class="btn" href="https://api.whatsapp.com/send?phone=62895404774374&text=Halo,%20Saya%20Ingin%20Membeli%20${p.name}%20${p.subname}%20Dengan%20Nominal%20(Isi%20Nominal)">Beli</a>
+            <a class="btn" href="${whatsappLink}" target="_blank">Beli</a>
             <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>
           </div>
         </div>
@@ -105,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-renderProducts()
+renderProducts();
 
 //
   //  { name: "barang", price: 1000, image: "20250325_070407.jpg", desc: "Desk" },

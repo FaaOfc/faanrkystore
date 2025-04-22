@@ -71,7 +71,7 @@ categories[category].forEach((p, i) => {
       <p>Rp. ${p.price.toLocaleString()}</p>  
       <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>  
       <div class="btn-group">  
-        <a class="btn" href="https://api.whatsapp.com/send?phone=62895404774374&text=Halo,%20Saya%20Ingin%20Membeli%20${p.name}%20${p.subname}">Beli</a>  
+        <a class="btn" href="https://api.whatsapp.com/send?phone=62895404774374&text=Halo%2C%0ASaya%20Ingin%20Membeli%20%24%7Bp.name%7D%20%24%7Bp.subname%7D">Beli</a>  
         <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>  
       </div>  
     </div>  

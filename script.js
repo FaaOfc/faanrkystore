@@ -82,10 +82,9 @@ categories[category].forEach((p, i) => {
 }
 
 function toggleDesc(cat, index) {
-const el = document.getElementById(desc-${cat}-${index});
-el.classList.toggle("show");
+  const el = document.getElementById(`desc-${cat}-${index}`);
+  el.classList.toggle("show");
 }
-
 function scrollSlider(cat, dir) {
 const slider = document.getElementById(cat);
 slider.scrollLeft += dir * 220;

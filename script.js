@@ -94,8 +94,7 @@ desc: "Rp. 7.000/1k Followers" }
 name: "Instagram",
 subname: "Views",
 price: 50, image: "20250325_070407.jpg",
-desc: "Rp. 50/1k Views
-Minimum Order Rp. 1.000",
+desc: "Rp. 50/1k Views\nMinimum Order Rp. 1.000",
 },
 {
 name: "Instagram",

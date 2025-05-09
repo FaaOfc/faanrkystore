@@ -190,7 +190,8 @@ categories[category].forEach((p, i) => {
       <p>Rp. ${p.price.toLocaleString()}</p>  
       <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>  
       <div class="btn-group">  
-        <a class="btn" href="payment-gate.html?code=${p.code}&name=${encodeURIComponent(p.name)}&subname=${encodeURIComponent(p.subname)}">Beli</a>button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>  
+        <a class="btn" href="payment-gate.html?code=${p.code}&name=${encodeURIComponent(p.name)}&subname=${encodeURIComponent(p.subname)}">Beli</a>
+        <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>  
       </div>  
     </div>  
   `;  

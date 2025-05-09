@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pembayaran</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembayaran Produk</title>
   <style>
     body {
       margin: 0;
@@ -22,51 +22,123 @@
       padding: 20px;
       border-radius: 10px;
       color: white;
-      max-width: 400px;
+      width: 350px;
       text-align: center;
     }
 
-    .payment-box img.qris {
-      width: 200px;
-      border: 2px solid black;
-      margin-bottom: 15px;
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid black;
     }
 
-    .product-image {
-      width: 100px;
+    .info-box {
+      background: #111;
+      border: 1px solid #333;
+      padding: 10px;
+      margin-top: 15px;
       border-radius: 5px;
+    }
+
+    .harga {
       margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .qris-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 2px solid black;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.qris-img {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+    a.btn-wa {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px;
+      background: green;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    a.btn-wa:hover {
+      background: darkgreen;
     }
   </style>
 </head>
 <body>
-  <div class="payment-box" id="paymentBox">
-    <h2 id="productTitle"></h2>
-    <p id="productDesc"></p>
-    <img class="qris" id="qrisImage" src="" alt="QRIS Pembayaran">
-    <p><strong>Harga:</strong> Rp <span id="priceDisplay"></span></p>
-    <img class="product-image" id="productImage" src="" alt="Gambar Produk">
+  <div class="payment-box">
+    <!-- Tambahan di dalam .payment-box sebelum h2 -->
+    <div class="qris-box">
+   <img src="qris_utama.png" alt="QRIS" class="qris-img">
+    </div>
+    <h2 id="productTitle">Produk</h2>
+    <div class="info-box">
+      <label for="typeSelect">Pilih Jumlah:</label>
+      <select id="typeSelect"></select>
+      <div class="harga" id="hargaDisplay">Harga: -</div>
+    </div>
+    <a id="waBtn" class="btn-wa" target="_blank">Beli via WhatsApp</a>
   </div>
 
   <script>
+    // Ambil parameter dari URL
     const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name');
-    const subname = urlParams.get('subname');
-    const price = urlParams.get('price');
-    const desc = urlParams.get('desc');
-    const image = urlParams.get('image');
-
+    const name = urlParams.get('name') || 'Produk';
+    const subname = urlParams.get('subname') || '';
+    
     document.getElementById('productTitle').textContent = `${name} - ${subname}`;
-    document.getElementById('productDesc').textContent = desc;
-    document.getElementById('priceDisplay').textContent = price;
-    document.getElementById('productImage').src = image;
 
-    // Ganti QRIS berdasarkan harga (bisa ditambah sesuai kebutuhan)
-    const qrisMap = {
-      "1000": "qris_1000.png",
-      "14000": "qris_14000.png"
-    };
-    document.getElementById('qrisImage').src = qrisMap[price] || "default_qris.png";
+    // List harga (bisa diubah sesuai kebutuhan)
+    const priceList = [
+      { type: "1000 Views", price: 1000 },
+      { type: "2000 Views", price: 2000 },
+      { type: "3000 Views", price: 3000 },
+      { type: "4000 Views", price: 4000 },
+      { type: "5000 Views", price: 5000 },
+      { type: "6000 Views", price: 6000 },
+      { type: "7000 Views", price: 7000 },
+      { type: "8000 Views", price: 8000 },
+      { type: "9000 Views", price: 9000 },
+      { type: "10000 Views", price: 10000 },
+    ];
+
+    const select = document.getElementById('typeSelect');
+    const hargaDisplay = document.getElementById('hargaDisplay');
+    const waBtn = document.getElementById('waBtn');
+
+    // Isi dropdown
+    priceList.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.type;
+      option.textContent = `${item.type} - Rp ${item.price}`;
+      select.appendChild(option);
+    });
+
+    // Update harga dan tombol WhatsApp saat pilihan berubah
+    function updateDisplay() {
+      const selectedType = select.value;
+      const selectedPrice = priceList.find(p => p.type === selectedType)?.price || 0;
+      hargaDisplay.textContent = `Harga: Rp ${selectedPrice}`;
+
+      const message = `Halo, saya ingin membeli ${name} ${subname} ${selectedType}`;
+      const waURL = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
+      waBtn.href = waURL;
+    }
+
+    select.addEventListener('change', updateDisplay);
+    updateDisplay(); // Initial
   </script>
 </body>
 </html>

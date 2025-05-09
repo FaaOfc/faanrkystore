@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('Background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .payment-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid black;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .payment-box img.qris {
+      width: 200px;
+      border: 2px solid black;
+      margin-bottom: 15px;
+    }
+
+    .product-image {
+      width: 100px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-box" id="paymentBox">
+    <h2 id="productTitle"></h2>
+    <p id="productDesc"></p>
+    <img class="qris" id="qrisImage" src="" alt="QRIS Pembayaran">
+    <p><strong>Harga:</strong> Rp <span id="priceDisplay"></span></p>
+    <img class="product-image" id="productImage" src="" alt="Gambar Produk">
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const subname = urlParams.get('subname');
+    const price = urlParams.get('price');
+    const desc = urlParams.get('desc');
+    const image = urlParams.get('image');
+
+    document.getElementById('productTitle').textContent = `${name} - ${subname}`;
+    document.getElementById('productDesc').textContent = desc;
+    document.getElementById('priceDisplay').textContent = price;
+    document.getElementById('productImage').src = image;
+
+    // Ganti QRIS berdasarkan harga (bisa ditambah sesuai kebutuhan)
+    const qrisMap = {
+      "1000": "qris_1000.png",
+      "14000": "qris_14000.png"
+    };
+    document.getElementById('qrisImage').src = qrisMap[price] || "default_qris.png";
+  </script>
+</body>
+</html>

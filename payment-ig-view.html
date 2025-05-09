@@ -94,14 +94,17 @@
 
   <script>
     // Ambil parameter dari URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name') || 'Produk';
-    const subname = urlParams.get('subname') || '';
-    
-    document.getElementById('productTitle').textContent = `${name} - ${subname}`;
+    <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code');
+  const name = urlParams.get('name') || 'Produk';
+  const subname = urlParams.get('subname') || '';
 
-    // List harga (bisa diubah sesuai kebutuhan)
-    const priceList = [
+  document.getElementById('productTitle').textContent = `${name} - ${subname}`;
+
+  // Harga per produk berdasarkan code
+  const priceMap = {
+    'ig-vi': [ // Instagram Views
       { type: "1000 Views", price: 1000 },
       { type: "2000 Views", price: 2000 },
       { type: "3000 Views", price: 3000 },
@@ -111,34 +114,59 @@
       { type: "7000 Views", price: 7000 },
       { type: "8000 Views", price: 8000 },
       { type: "9000 Views", price: 9000 },
-      { type: "10000 Views", price: 10000 },
-    ];
+      { type: "10000 Views", price: 10000 }
+    ],
+    'ig-li': [ // Instagram Likes
+      { type: "1000 Likes", price: 3000 },
+      { type: "2000 Likes", price: 5800 },
+      { type: "3000 Likes", price: 8500 },
+      { type: "4000 Likes", price: 11000 },
+      { type: "5000 Likes", price: 13500 },
+      { type: "6000 Likes", price: 15900 },
+      { type: "7000 Likes", price: 18200 },
+      { type: "8000 Likes", price: 20400 },
+      { type: "9000 Likes", price: 22500 },
+      { type: "10000 Likes", price: 24500 }
+    ],
+    'ig-fo': [ // Instagram Followers
+      { type: "1000 Followers", price: 5000 },
+      { type: "2000 Followers", price: 9500 },
+      { type: "3000 Followers", price: 13500 },
+      { type: "4000 Followers", price: 17000 },
+      { type: "5000 Followers", price: 20000 },
+      { type: "6000 Followers", price: 22800 },
+      { type: "7000 Followers", price: 25300 },
+      { type: "8000 Followers", price: 27500 },
+      { type: "9000 Followers", price: 29400 },
+      { type: "10000 Followers", price: 31000 }
+    ]
+  };
 
-    const select = document.getElementById('typeSelect');
-    const hargaDisplay = document.getElementById('hargaDisplay');
-    const waBtn = document.getElementById('waBtn');
+  const priceList = priceMap[code] || [];
 
-    // Isi dropdown
-    priceList.forEach(item => {
-      const option = document.createElement('option');
-      option.value = item.type;
-      option.textContent = `${item.type} - Rp ${item.price}`;
-      select.appendChild(option);
-    });
+  const select = document.getElementById('typeSelect');
+  const hargaDisplay = document.getElementById('hargaDisplay');
+  const waBtn = document.getElementById('waBtn');
 
-    // Update harga dan tombol WhatsApp saat pilihan berubah
-    function updateDisplay() {
-      const selectedType = select.value;
-      const selectedPrice = priceList.find(p => p.type === selectedType)?.price || 0;
-      hargaDisplay.textContent = `Harga: Rp ${selectedPrice}`;
+  // Isi dropdown
+  priceList.forEach(item => {
+    const option = document.createElement('option');
+    option.value = item.type;
+    option.textContent = `${item.type} - Rp ${item.price.toLocaleString()}`;
+    select.appendChild(option);
+  });
 
-      const message = `Halo, saya ingin membeli ${name} ${subname} ${selectedType}`;
-      const waURL = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
-      waBtn.href = waURL;
-    }
+  function updateDisplay() {
+    const selectedType = select.value;
+    const selectedPrice = priceList.find(p => p.type === selectedType)?.price || 0;
+    hargaDisplay.textContent = `Harga: Rp ${selectedPrice.toLocaleString()}`;
 
-    select.addEventListener('change', updateDisplay);
-    updateDisplay(); // Initial
+    const message = `Halo, saya ingin membeli ${name} ${subname} ${selectedType}`;
+    waBtn.href = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
+  }
+
+  select.addEventListener('change', updateDisplay);
+  updateDisplay(); // Initial
   </script>
 </body>
 </html>

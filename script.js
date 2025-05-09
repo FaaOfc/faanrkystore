@@ -93,19 +93,21 @@ desc: "Rp. 7.000/1k Followers" }
 {
 name: "Instagram",
 subname: "Views",
-code: "ig-view",
+code: "ig-vi",
 price: 50, image: "20250325_070407.jpg",
 desc: "Rp. 50/1k Views\nMinimum Order Rp. 1.000",
 },
 {
 name: "Instagram",
 subname: "Likes",
+code: "ig-li",
 price: 1000, image: "20250325_070407.jpg",
 desc: "Rp. 1.000/1k Likes",
 },
 {
 name: "Instagram",
 subname: "Followers",
+code: "ig-fo",
 price: 14000, image: "20250325_070407.jpg",
 desc: "Rp. 14.000/1k Followers" }
 ],
@@ -188,7 +190,7 @@ categories[category].forEach((p, i) => {
       <p>Rp. ${p.price.toLocaleString()}</p>  
       <div class="desc" id="desc-${category}-${i}">${formattedDesc}</div>  
       <div class="btn-group">  
-        <a class="btn" href="payment-${p.code}.html?name=${encodeURIComponent(p.name)}&subname=${encodeURIComponent(p.subname)}&price=${p.price}&desc=${encodeURIComponent(p.desc)}&image=${encodeURIComponent(p.image)}">Beli</a>
+        <a class="btn" href="payment-gate.html?code=${p.code}&name=${encodeURIComponent(p.name)}&subname=${encodeURIComponent(p.subname)}&price=${p.price}&desc=${encodeURIComponent(p.desc)}&image=${encodeURIComponent(p.image)}">Beli</a>
        <button class="btn" onclick="toggleDesc('${category}', ${i})">Lihat Deskripsi</button>  
       </div>  
     </div>  

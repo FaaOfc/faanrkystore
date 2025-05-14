@@ -346,7 +346,16 @@
     const selectedPrice = priceList.find(p => p.type === selectedType)?.price || 0;
     hargaDisplay.textContent = `Harga: Rp ${selectedPrice.toLocaleString()}`;
 
-    const message = `Halo, saya ingin membeli ${selectedType} ${name} dengan harga Rp.${selectedPrice.toLocaleString()}`;
+    const message = `Halo,
+Saya ingin membeli ${selectedType} ${name} ${subname} dengan harga Rp.${selectedPrice.toLocaleString()}
+
+Detail Pesanan :
+*Nama Barang*
+= ${name} ${subname}
+*Kategori/Jumlah Barang*
+= ${selectedType}
+*Total Bayar*
+= Rp.${selectedPrice.toLocaleString()}`;
     waBtn.href = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
   }
 

@@ -10,41 +10,49 @@ const categories = {
 "Panel": [
 {
 name: "Tangan Kanan" ,
+code: "tgn-kanan",
 subname: "Panel",  price: 35000, image: "20250325_070407.jpg",
 desc: "BENEFIT\n\nDAPET OWN PANEL\nDAPET ADP\nDAPET 23 SERVER (PUBLIK)\nBISA OPEN ADP\nBISA OPEN RESELLER\nBISA OPEN OWN\nBISA JUAL PANEL\n\nSPEK? 16GB 4CORE",
 },
 {
 name: "Tangan Kiri" ,
+code: "tgn-kiri",
 subname: "Panel",  price: 30000, image: "20250325_070407.jpg",
 desc: "BENEFIT\n\nDAPET OWN PANEL\nDAPET ADP\nDAPET 12 SERVER (PUBLIK)\nBISA OPEN ADP\nBISA OPEN RESELLER\nBISA OPEN OWN\nBISA JUAL PANEL\n\nSPEK? 16GB 4CORE",
 },
 {
 name: "Owner" ,
+code: "own-pnl",
 subname: "Panel",  price: 2000, image: "20250325_070407.jpg",
 desc: "BENEFIT\n\nDAPET OWN PANEL\nDAPET ADP\nBISA OPEN ADP\nBISA OPEN RESELLER\nBISA JUAL PANEL\n\nSPEK? 16GB 4CORE",
 },
 {
 name: "Admin" ,
+code: "adm-pnl",
 subname: "Panel",  price: 10000, image: "20250325_070407.jpg",
 desc: "BENEFIT\n\nDAPET ADP\nBISA OPEN RESELLER\nBISA JUAL PANEL\n\nSPEK? 16GB 4CORE",
 },
 {
 name: "Reseller Panel" ,
+code: "ress-priv",
 subname: "Privat",  price: 7000, image: "20250325_070407.jpg",
 desc: "BENEFIT\n\nDAPET RESELLER PANEL PRIVAT \nDAPET SC CPANEL\nBISA JUAL PANEL\n\nSPEK? 16GB 4CORE",
 },
 {
 name: "Reseller Panel" ,
+code: "ress-pub",
 subname: "Publik",  price: 5000, image: "20250325_070407.jpg",
 desc: "BENEFIT\n\nDAPET RESELLER PANEL PUBLIK\nDAPET SC CPANEL\nBISA JUAL PANEL\n\nSPEK? 16GB 4CORE",
 },
 {
 name: "Panel Bot" ,
+code: "panelpriv",
 subname: "Privat",  price: 10000, image: "20250325_070407.jpg",
 desc: "LIST PANEL PRIV\n\nR1G D1G C40% : 2000\nR2G D2G C60% : 3000\nR3G D3G C80% : 4000\nR4G D4G C100% : 5000\nR5G D4G C120% : 6000\nR6G D6G C140% : 7000\nR7G D7G C160% : 8000\nR8G D7G C180% : 9000\nR∞G D∞G C∞% : 10000\n\nNOTE\nR = RAM\nD = DISK\nC = CPU\nG = GB\n\nCONTOH:\nR1GB D1G C40%\nRAM 1GB\nDISK 1GB\nCPU 40%\n\nBENEFIT\n\nALWAYS ON\n GARANSI 10 HARI (1X)\nAMAN NO INTIP\nADMIN CUMA 1\n NO ADP",
 },
 {
 name: "Panel Bot" ,
+code: "panelpub",
 subname: "Publik",  price: 5000, image: "20250325_070407.jpg",
 desc: "LIST PANEL PUBLIK\n\nR1G D1G C40% : 1000\nR2G D2G C60% : 1500\nR3G D3G C80% : 2000\nR4G D4G C100% : 2500\nR5G D4G C120% : 3000\nR6G D6G C140% : 3500\nR7G D7G C160% : 4000\nR8G D7G C180% : 4500\nR∞G D∞G C∞% : 5000\n\nNOTE\nR = RAM\nD = DISK\nC = CPU\nG = GB\n\nCONTOH:\nR1GB D1G C40%\nRAM 1GB\nDISK 1GB\nCPU 40%\n\nBENEFIT\n\nALWAYS ON\n GARANSI 10 HARI (1X)\n\nNOTE:\nRESIKO INTIP SERVER\nADP LEBIH DARI 1\n GW JARANG CEK SERVER" }
 ],

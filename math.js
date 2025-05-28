@@ -93,17 +93,3 @@ function startGame() {
   generateQuestion();
 }
 
-    // Cek orientasi layar untuk perangkat mobile
-function checkOrientation() {
-  if (window.innerWidth > window.innerHeight) {
-    // Landscape
-    document.body.style.justifyContent = 'center';
-  } else {
-    // Portrait
-    document.body.style.justifyContent = 'flex-start';
-    alert("Untuk pengalaman terbaik, putar layar ke posisi *landscape*.");
-  }
-}
-
-window.addEventListener("load", checkOrientation);
-window.addEventListener("resize", checkOrientation);

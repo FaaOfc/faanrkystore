@@ -49,17 +49,6 @@ select, input, button {
   margin-bottom: 10px;
 }
 
-/* Tambahan untuk responsive */
-@media (max-width: 600px) {
-  .game-container {
-    width: calc(100% - 40px);
-  }
-
-  select, input, button {
-    font-size: 18px;
-  }
-
-  #question {
-    font-size: 22px;
-  }
+#answer {
+  text-align: center;
 }

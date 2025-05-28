@@ -3,47 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Math Game</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('Background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial, sans-serif;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .game-container {
-      background-color: rgba(0, 0, 0, 0.7);
-      border: 2px solid black;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      width: 300px;
-    }
-
-    select, input, button {
-      margin: 10px 0;
-      padding: 8px;
-      width: 100%;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-    }
-
-    .result {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div class="game-container">
     <h2>Math Game</h2>
     <select id="mode">
@@ -55,78 +17,12 @@
     </select>
     <div id="question">Click "Start" to begin!</div>
     <input type="number" id="answer" placeholder="Enter your answer">
-    <button onclick="checkAnswer()">Submit</button>
-    <button onclick="generateQuestion()">Start</button>
-    <div class="result" id="result"></div>
+    <button onclick="submitAnswer()">Submit</button>
+    <button onclick="startGame()">Start</button>
+    <div id="score">Score: 0 / 10</div>
+    <div id="result" class="result"></div>
   </div>
 
-  <script>
-    let currentAnswer = 0;
-
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function generateQuestion() {
-      const mode = document.getElementById('mode').value;
-      let num1, num2, op, ops;
-
-      switch (mode) {
-        case 'easy':
-          num1 = getRandomInt(1, 10);
-          num2 = getRandomInt(1, 10);
-          ops = ['+'];
-          break;
-        case 'medium':
-          num1 = getRandomInt(10, 50);
-          num2 = getRandomInt(1, 10);
-          ops = ['+', '-'];
-          break;
-        case 'normal':
-          num1 = getRandomInt(10, 100);
-          num2 = getRandomInt(10, 100);
-          ops = ['+', '-', '*'];
-          break;
-        case 'hard':
-          num1 = getRandomInt(50, 200);
-          num2 = getRandomInt(1, 20);
-          ops = ['+', '-', '*', '/'];
-          break;
-        case 'impossible':
-          num1 = getRandomInt(100, 999);
-          num2 = getRandomInt(1, 99);
-          ops = ['+', '-', '*', '/'];
-          break;
-      }
-
-      op = ops[Math.floor(Math.random() * ops.length)];
-
-      let question = `${num1} ${op} ${num2}`;
-      currentAnswer = eval(question);
-      currentAnswer = Math.round(currentAnswer * 100) / 100; // round for division
-
-      document.getElementById('question').textContent = `What is ${question}?`;
-      document.getElementById('result').textContent = '';
-      document.getElementById('answer').value = '';
-    }
-
-    function checkAnswer() {
-      const userAnswer = parseFloat(document.getElementById('answer').value);
-      const result = document.getElementById('result');
-
-      if (isNaN(userAnswer)) {
-        result.textContent = "Please enter a valid number.";
-        result.style.color = "yellow";
-      } else if (Math.abs(userAnswer - currentAnswer) < 0.01) {
-        result.textContent = "Correct!";
-        result.style.color = "lightgreen";
-        generateQuestion();
-      } else {
-        result.textContent = "Wrong. Try again!";
-        result.style.color = "red";
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>

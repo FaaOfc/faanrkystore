@@ -76,7 +76,7 @@ function submitAnswer() {
     setTimeout(generateQuestion, 1000);
   } else {
     setTimeout(() => {
-      document.getElementById('question').textContent = `Game Selesai, Skor Akhir${currentScore * 10}/${totalQuestions * 10}`;
+      document.getElementById('question').textContent = `Game Selesai, Skor Akhir ${currentScore * 10}/${totalQuestions * 10}`;
       document.getElementById('result').textContent = '';
     }, 1000);
   }

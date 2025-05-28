@@ -3,7 +3,7 @@ body {
   padding: 0;
   background: url('Background.jpg') no-repeat center center fixed;
   background-size: cover;
-  font-family: Arial, sans-serif;
+  font-family: 'Bungee', cursive;
   color: white;
   display: flex;
   flex-direction: column;
@@ -16,26 +16,50 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   border: 2px solid black;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
-  width: 300px;
+  width: calc(100% - 200px);
+  max-width: 600px;
+  box-sizing: border-box;
 }
 
 select, input, button {
   margin: 10px 0;
-  padding: 8px;
+  padding: 14px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
-  font-size: 16px;
+  font-size: 20px;
+  font-family: 'Bungee', cursive;
 }
 
 .result {
   margin-top: 10px;
   font-weight: bold;
+  font-size: 20px;
 }
 
 #score {
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 22px;
+}
+
+#question {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Tambahan untuk responsive */
+@media (max-width: 600px) {
+  .game-container {
+    width: calc(100% - 40px);
+  }
+
+  select, input, button {
+    font-size: 18px;
+  }
+
+  #question {
+    font-size: 22px;
+  }
 }

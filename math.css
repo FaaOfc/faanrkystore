@@ -10,6 +10,9 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+
+  /* Tambahan agar bisa scroll di layar kecil */
+  overflow-y: auto;
 }
 
 .game-container {
@@ -21,6 +24,10 @@ body {
   width: calc(100% - 200px);
   max-width: 600px;
   box-sizing: border-box;
+
+  /* Tambahan agar lebih center secara proporsional jika tinggi tidak cukup */
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 select, input, button {

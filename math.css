@@ -10,6 +10,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin-left: 10px;
+  margin-right: 10px;
 
   /* Tambahan agar bisa scroll di layar kecil */
   overflow-y: auto;
@@ -28,7 +30,6 @@ body {
   /* Tambahan agar lebih center secara proporsional jika tinggi tidak cukup */
   margin-top: auto;
   margin-bottom: auto;
-}
 
 select, input, button {
   margin: 10px 0;

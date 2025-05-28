@@ -55,17 +55,17 @@ function submitAnswer() {
   const result = document.getElementById('result');
 
   if (isNaN(userAnswer)) {
-    result.textContent = "Please enter a number.";
+    result.textContent = "Masukan Angkanya";
     result.style.color = "yellow";
     return;
   }
 
   if (Math.abs(userAnswer - currentAnswer) < 0.01) {
     currentScore++;
-    result.textContent = "Correct!";
+    result.textContent = "Benar!!";
     result.style.color = "lightgreen";
   } else {
-    result.textContent = `Wrong. The correct answer was ${currentAnswer}`;
+    result.textContent = `Salah, Jawabannya ${currentAnswer}`;
     result.style.color = "red";
   }
 
@@ -76,7 +76,7 @@ function submitAnswer() {
     setTimeout(generateQuestion, 1000);
   } else {
     setTimeout(() => {
-      document.getElementById('question').textContent = `Game over! Your final score: ${currentScore}/${totalQuestions}`;
+      document.getElementById('question').textContent = `Game Selesai, Skor Akhir${currentScore * 10}/${totalQuestions * 10}`;
       document.getElementById('result').textContent = '';
     }, 1000);
   }

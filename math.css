@@ -1,3 +1,11 @@
+/* Reset universal */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styling */
 body {
   margin: 0;
   padding: 0;
@@ -10,54 +18,57 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin-left: 10px;
-  margin-right: 10px;
-
-  /* Tambahan agar bisa scroll di layar kecil */
   overflow-y: auto;
 }
 
+/* Game container box */
 .game-container {
   background-color: rgba(0, 0, 0, 0.2);
   border: 2px solid black;
-  padding: 20px;
+  padding: 30px 20px;
   border-radius: 20px;
   text-align: center;
   width: calc(100% - 200px);
   max-width: 600px;
   box-sizing: border-box;
 
-  /* Tambahan agar lebih center secara proporsional jika tinggi tidak cukup */
-  margin-top: auto;
-  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
 
+/* All form elements */
 select, input, button {
-  margin: 10px 0;
   padding: 14px;
   width: 100%;
+  max-width: 500px;
   border-radius: 8px;
   border: none;
   font-size: 20px;
-  align-items: center;
   font-family: 'Bungee', cursive;
 }
 
+/* Hasil jawaban */
 .result {
   margin-top: 10px;
   font-weight: bold;
   font-size: 20px;
 }
 
+/* Skor */
 #score {
-  margin-top: 10px;
   font-size: 22px;
 }
 
+/* Soal */
 #question {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
+/* Input jawaban */
 #answer {
   text-align: center;
 }

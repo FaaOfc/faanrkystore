@@ -278,7 +278,7 @@ function renderExtraInputs() {
   } else if (code === "wdp") {
     // Kebutuhan Sosial Media: butuh URL
     customInputs.innerHTML = `
-      <input type="text" id="inputURL" placeholder="Masukkan ID Game" required>
+      <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
       <input type="text" id="inputServer" placeholder="Masukkan ID Server" required>
     `;
   }

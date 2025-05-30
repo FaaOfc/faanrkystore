@@ -204,6 +204,13 @@ const priceMap = {
     { type: "60 Hari", price: 40000 },
     { type: "90 Hari", price: 60000 }
   ],
+    'sewabot': [
+    { type: "15 hari", price: 50000 },
+    { type: "30 Hari", price: 10000 },
+    { type: "60 Hari", price: 15000 },
+    { type: "90 Hari", price: 20000 },
+    { type: "Permanen", price: 30000 }
+  ],
   'adm-pnl': [
     { type: "30 Hari", price: 10000 },
     { type: "60 Hari", price: 20000 },

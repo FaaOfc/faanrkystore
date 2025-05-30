@@ -1,4 +1,4 @@
-9const urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
 const code = urlParams.get('rc');
 const name = urlParams.get('nm') || 'Produk';
 const subname = urlParams.get('snm') || '';

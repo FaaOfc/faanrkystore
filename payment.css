@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: url('Background.jpg') no-repeat center center fixed;
+  background: #111 url('Background.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: Bungee, cursive;
   display: flex;
@@ -16,7 +16,8 @@ body {
   border-radius: 15px;
   color: white;
   margin: 0 20px;
-  width: 95%;
+  width: 100%;
+  max-width: 500px;
   text-align: center;
 }
 
@@ -31,7 +32,17 @@ button {
   border-radius: 5px;
   border: 1px solid black;
   font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
+
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  border-color: #00ffcc;
+  box-shadow: 0 0 5px #00ffcc;
+}
+
 .info-box {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid #333;
@@ -77,8 +88,22 @@ a.btn-wa {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 a.btn-wa:hover {
   background: darkgreen;
+}
+
+/* Responsive tweaks for smaller devices */
+@media (max-width: 600px) {
+  .payment-box {
+    padding: 15px;
+  }
+
+  select,
+  input,
+  button {
+    font-size: 14px;
+  }
 }

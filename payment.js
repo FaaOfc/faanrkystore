@@ -262,21 +262,18 @@ priceList.forEach(item => {
 
 // Fungsi untuk menentukan input tambahan berdasarkan kode
 function renderExtraInputs() {
-  customInputs.innerHTML = ''; // Bersihkan input lama
+  customInputs.innerHTML = '';
 
   if (code.startsWith("dm-ml")) {
-    // Mobile Legends: butuh ID dan Server
     customInputs.innerHTML = `
       <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
       <input type="text" id="inputServer" placeholder="Masukkan ID Server" required>
     `;
   } else if (code === "cp") {
-    // COD Point: hanya butuh ID
     customInputs.innerHTML = `
       <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
     `;
   } else if (code === "wdp") {
-    // Kebutuhan Sosial Media: butuh URL
     customInputs.innerHTML = `
       <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
       <input type="text" id="inputServer" placeholder="Masukkan ID Server" required>

@@ -221,15 +221,25 @@ const priceMap = {
   ]
   };
 const promoCodes = {
-  "FAANRKY10": {
-    type: "percent",
-    value: 10,
-    expiry: "2025-06-29"
+  "FAA5K": {
+    type: "amount",
+    value: 5000,
+    expiry: "2025-06-10"
   },
-  "FAAN10K": {
+    "FAAN5": {
+    type: "percent",
+    value: 5,
+    expiry: "2025-06-10"
+  },
+    "FAANRKY10": {
     type: "amount",
     value: 10000,
-    expiry: "2025-07-2"
+    expiry: "2025-06-10"
+  },
+  "THRHARIRAYA": {
+    type: "amount",
+    value: 30000,
+    expiry: "2025-04-10"
   }
 };
 

@@ -250,7 +250,7 @@ const diskonDisplay = document.getElementById('diskonDisplay');
 const totalDisplay = document.getElementById('totalDisplay');
 const promoInput = document.getElementById('promoInput');
 const waBtn = document.getElementById('waBtn');
-const customInputs = document.getElementById('customInputs'); // Ganti dari extraInputs ke customInputs
+const customInputs = document.getElementById('customInputs');
 
 // Tampilkan semua opsi harga
 priceList.forEach(item => {
@@ -260,11 +260,11 @@ priceList.forEach(item => {
   select.appendChild(option);
 });
 
-// Fungsi untuk menentukan input tambahan berdasarkan kode
+// Fungsi input tambahan
 function renderExtraInputs() {
   customInputs.innerHTML = '';
 
-  if (code.startsWith("dm-ml")) {
+  if (code.startsWith("dm-ml") || code === "wdp") {
     customInputs.innerHTML = `
       <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
       <input type="text" id="inputServer" placeholder="Masukkan ID Server" required>
@@ -273,15 +273,10 @@ function renderExtraInputs() {
     customInputs.innerHTML = `
       <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
     `;
-  } else if (code === "wdp") {
-    customInputs.innerHTML = `
-      <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
-      <input type="text" id="inputServer" placeholder="Masukkan ID Server" required>
-    `;
   }
 }
 
-// Hitung diskon
+// Fungsi diskon
 function calculateDiscount(price, code) {
   const promo = promoCodes[code.toUpperCase()];
   if (!promo) return { discount: 0, valid: false };
@@ -299,10 +294,8 @@ function calculateDiscount(price, code) {
   return { discount, valid: true };
 }
 
-// Update tampilan harga dan link WhatsApp
+// Fungsi utama
 function updateDisplay() {
-  renderExtraInputs(); // Pastikan input tambahan dirender ulang
-
   const selectedType = select.value;
   const selectedPrice = priceList.find(p => p.type === selectedType)?.price || 0;
   const promoCode = promoInput.value.trim();
@@ -340,6 +333,14 @@ ${valid ? `*Diskon (${promoCode})* = -Rp.${discount.toLocaleString()}\n` : ""}To
 // Event listeners
 select.addEventListener('change', updateDisplay);
 promoInput.addEventListener('input', updateDisplay);
-document.addEventListener('input', updateDisplay); // untuk input ID/Server/URL
 
-updateDisplay(); // Jalankan saat pertama
+// Hanya dengarkan input tambahan, bukan semua input di seluruh dokumen
+document.addEventListener('input', (e) => {
+  if (["inputID", "inputServer", "inputURL"].includes(e.target.id)) {
+    updateDisplay();
+  }
+});
+
+// Jalankan hanya sekali saat load
+renderExtraInputs();
+updateDisplay();

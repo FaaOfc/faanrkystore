@@ -205,7 +205,7 @@ const priceMap = {
     { type: "90 Hari", price: 60000 }
   ],
   'sewabot': [
-    { type: "15 hari", price: 50000 },
+    { type: "15 hari", price: 5000 },
     { type: "30 Hari", price: 10000 },
     { type: "60 Hari", price: 15000 },
     { type: "90 Hari", price: 20000 },

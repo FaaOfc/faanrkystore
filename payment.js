@@ -1,4 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
+9const urlParams = new URLSearchParams(window.location.search);
 const code = urlParams.get('rc');
 const name = urlParams.get('nm') || 'Produk';
 const subname = urlParams.get('snm') || '';
@@ -279,6 +279,10 @@ function renderExtraInputs() {
   } else if (code === "cp") {
     customInputs.innerHTML = `
       <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
+    `;
+  } else if (code === "sewabot") {
+    customInputs.innerHTML = `
+      <input type="text" id="inputURL" placeholder="Masukkan URL Grup" required>
     `;
   }
 }

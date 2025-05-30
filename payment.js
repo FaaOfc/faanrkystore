@@ -295,7 +295,9 @@ Detail Pesanan:
 *Kategori/Jumlah Barang* = ${selectedType}
 *Harga Awal* = Rp.${selectedPrice.toLocaleString()}
 ${valid ? `*Diskon (${promoCode})* = -Rp.${discount.toLocaleString()}` : ""}
-*Total Bayar* = Rp.${finalPrice.toLocaleString()}`;
+
+*Total Bayar* = Rp.${finalPrice.toLocaleString()}
+> Harga Sudah Termasuk Biaya Admin`;
 
   waBtn.href = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
 }

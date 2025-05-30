@@ -63,7 +63,7 @@ name: "Sewabot",
 subname: "WhatsApp",
 code: "sewabot",
 price: 10000, image: "20250325_070407.jpg",
-desc: "Harga Sewa\n\n15 HARI - 5000\n30 HARI - 10000\n60 HARI - 15000\n90 HARI - 20000\nPERMANEN - 30000\n\nNOTE:\nBOT DI KICK = HABIS KONTRAK",
+desc: "Harga Sewa\n\n15 HARI - 5000\n30 HARI - 10000\n60 HARI - 15000\n90 HARI - 20000\nPERMANEN - 30000\n\nNOTE:\nBOT DI KICK\nARTINYA\nHABIS KONTRAK",
 },
 {
 name: "Install Panel",

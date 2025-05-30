@@ -279,6 +279,7 @@ function renderExtraInputs() {
     // Kebutuhan Sosial Media: butuh URL
     customInputs.innerHTML = `
       <input type="text" id="inputURL" placeholder="Masukkan URL Sosial Media" required>
+      <input type="text" id="inputServer" placeholder="Masukkan Server" required>
     `;
   }
 }

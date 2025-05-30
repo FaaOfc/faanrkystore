@@ -250,7 +250,9 @@ const diskonDisplay = document.getElementById('diskonDisplay');
 const totalDisplay = document.getElementById('totalDisplay');
 const promoInput = document.getElementById('promoInput');
 const waBtn = document.getElementById('waBtn');
+const customInputs = document.getElementById('customInputs'); // Ganti dari extraInputs ke customInputs
 
+// Tampilkan semua opsi harga
 priceList.forEach(item => {
   const option = document.createElement('option');
   option.value = item.type;
@@ -258,6 +260,30 @@ priceList.forEach(item => {
   select.appendChild(option);
 });
 
+// Fungsi untuk menentukan input tambahan berdasarkan kode
+function renderExtraInputs() {
+  customInputs.innerHTML = ''; // Bersihkan input lama
+
+  if (code.startsWith("dm-ml")) {
+    // Mobile Legends: butuh ID dan Server
+    customInputs.innerHTML = `
+      <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
+      <input type="text" id="inputServer" placeholder="Masukkan Server" required>
+    `;
+  } else if (code === "cp") {
+    // COD Point: hanya butuh ID
+    customInputs.innerHTML = `
+      <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
+    `;
+  } else if (code === "wdp") {
+    // Kebutuhan Sosial Media: butuh URL
+    customInputs.innerHTML = `
+      <input type="text" id="inputURL" placeholder="Masukkan URL Sosial Media" required>
+    `;
+  }
+}
+
+// Hitung diskon
 function calculateDiscount(price, code) {
   const promo = promoCodes[code.toUpperCase()];
   if (!promo) return { discount: 0, valid: false };
@@ -275,7 +301,10 @@ function calculateDiscount(price, code) {
   return { discount, valid: true };
 }
 
+// Update tampilan harga dan link WhatsApp
 function updateDisplay() {
+  renderExtraInputs(); // Pastikan input tambahan dirender ulang
+
   const selectedType = select.value;
   const selectedPrice = priceList.find(p => p.type === selectedType)?.price || 0;
   const promoCode = promoInput.value.trim();
@@ -285,23 +314,34 @@ function updateDisplay() {
 
   hargaDisplay.textContent = `Harga: Rp ${selectedPrice.toLocaleString()}`;
   diskonDisplay.textContent = valid ? `Diskon: -Rp ${discount.toLocaleString()} (kode: ${promoCode})` : "";
-  totalDisplay.textContent = valid ? `Total Bayar: Rp ${finalPrice.toLocaleString()}` : "";
+  totalDisplay.textContent = `Total Bayar: Rp ${finalPrice.toLocaleString()}`;
 
-  const message = `Halo,
-Saya ingin membeli ${selectedType} ${name} ${subname}
+  // Ambil input tambahan
+  let extraDetail = "";
+  const inputID = document.getElementById('inputID');
+  const inputServer = document.getElementById('inputServer');
+  const inputURL = document.getElementById('inputURL');
+
+  if (inputID) extraDetail += `ID Game = ${inputID.value}\n`;
+  if (inputServer) extraDetail += `Server = ${inputServer.value}\n`;
+  if (inputURL) extraDetail += `URL Sosmed = ${inputURL.value}\n`;
+
+  const message = `Halo, Saya ingin membeli ${selectedType} ${name} ${subname}
 
 Detail Pesanan:
-*Nama Barang* = ${name} ${subname}
-*Kategori/Jumlah Barang* = ${selectedType}
-*Harga Awal* = Rp.${selectedPrice.toLocaleString()}
-${valid ? `*Diskon (${promoCode})* = -Rp.${discount.toLocaleString()}` : ""}
+Nama Barang = ${name} ${subname}
+Kategori/Jumlah Barang = ${selectedType}
+${extraDetail}Harga Awal = Rp.${selectedPrice.toLocaleString()}
+${valid ? `*Diskon (${promoCode})* = -Rp.${discount.toLocaleString()}\n` : ""}Total Bayar = Rp.${finalPrice.toLocaleString()}
 
-*Total Bayar* = Rp.${finalPrice.toLocaleString()}
 > Harga Sudah Termasuk Biaya Admin`;
 
   waBtn.href = `https://api.whatsapp.com/send?phone=62895404774374&text=${encodeURIComponent(message)}`;
 }
 
+// Event listeners
 select.addEventListener('change', updateDisplay);
 promoInput.addEventListener('input', updateDisplay);
-updateDisplay();
+document.addEventListener('input', updateDisplay); // untuk input ID/Server/URL
+
+updateDisplay(); // Jalankan saat pertama

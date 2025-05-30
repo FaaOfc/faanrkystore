@@ -59,6 +59,13 @@ desc: "LIST PANEL PUBLIK\n\nR1G D1G C40% : 1000\nR2G D2G C60% : 1500\nR3G D3G C8
 
 "Jasa": [
 {
+name: "Sewa",
+subname: "Bot",
+code: "sewabot",
+price: 10000, image: "20250325_070407.jpg",
+desc: "Harga Sewa\n\n15 HARI - 5000\n30 HARI - 10000\n60 HARI - 15000\n90 HARI - 20000\nPERMANEN - 30000\n\nNOTE:\nBOT DI KICK = HABIS KONTRAK",
+},
+{
 name: "Install Panel",
 subname: "Pterodactyl",
 price: 10000, image: "20250325_070407.jpg",

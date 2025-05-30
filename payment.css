@@ -20,14 +20,18 @@ body {
   text-align: center;
 }
 
-select, input, button {
+select,
+input,
+button {
   width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
   padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
   border: 1px solid black;
+  font-size: 16px;
 }
-
 .info-box {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid #333;

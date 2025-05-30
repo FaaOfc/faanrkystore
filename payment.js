@@ -224,12 +224,12 @@ const promoCodes = {
   "FAANRKY10": {
     type: "percent",
     value: 10,
-    expiry: "2025-06-30"
+    expiry: "2025-06-29"
   },
-  "FAAN5000": {
+  "FAAN10K": {
     type: "amount",
-    value: 5000,
-    expiry: "2025-07-15"
+    value: 10000,
+    expiry: "2025-07-2"
   }
 };
 

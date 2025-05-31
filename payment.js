@@ -326,7 +326,7 @@ function updateDisplay() {
 
   if (inputID) extraDetail += `ID Game = ${inputID.value}\n`;
   if (inputServer) extraDetail += `Server = ${inputServer.value}\n`;
-  if (inputURL) extraDetail += `URL Sosmed = ${inputURL.value}\n`;
+  if (inputURL) extraDetail += `URL = ${inputURL.value}\n`;
 
   const message = `Halo, Saya ingin membeli ${selectedType} ${name} ${subname}
 

@@ -335,7 +335,6 @@ Nama Barang = ${name} ${subname}
 Kategori/Jumlah Barang = ${selectedType}
 
 ${extraDetail}
-
 Harga Awal = Rp.${selectedPrice.toLocaleString()}
 ${valid ? `*Diskon (${promoCode})* = -Rp.${discount.toLocaleString()}\n` : ""}Total Bayar = Rp.${finalPrice.toLocaleString()}
 

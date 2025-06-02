@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Math Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="math.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="math.css">
 </head>
 <body>
   <div class="game-container">
     <h2>Math Game</h2>
+
     <select id="mode">
       <option value="baby">Baby Mode</option>
-      <option value="noob">Noob</option>
-      <option value="normal">Normal</option>
-      <option value="pro">Pro Player</option>
-      <option value="sepuh">Sefuh</option>
+      <option value="noob">Noob Mode</option>
+      <option value="normal">Normal Mode</option>
+      <option value="pro">Hard Mode</option>
+      <option value="sepuh">Sepuh Mode</option>
       <option value="dewa">God Mode</option>
     </select>
 
     <div id="question">Klik Start Untuk Memulai</div>
-    <input type="text" id="answer" placeholder="Jawaban" readonly />
+
+    <input type="text" id="answer" placeholder="Jawaban" readonly>
 
     <div class="numpad">
-      <button onclick="appendToAnswer('1')">1</button>
-      <button onclick="appendToAnswer('2')">2</button>
-      <button onclick="appendToAnswer('3')">3</button>
-      <button onclick="appendToAnswer('4')">4</button>
-      <button onclick="appendToAnswer('5')">5</button>
-      <button onclick="appendToAnswer('6')">6</button>
-      <button onclick="appendToAnswer('7')">7</button>
-      <button onclick="appendToAnswer('8')">8</button>
-      <button onclick="appendToAnswer('9')">9</button>
-      <button onclick="appendToAnswer('-')">-</button>
-      <button onclick="appendToAnswer('0')">0</button>
-      <button onclick="deleteLast()">Del</button>
+      <button onclick="appendNum('1')">1</button>
+      <button onclick="appendNum('2')">2</button>
+      <button onclick="appendNum('3')">3</button>
+      <button onclick="appendNum('4')">4</button>
+      <button onclick="appendNum('5')">5</button>
+      <button onclick="appendNum('6')">6</button>
+      <button onclick="appendNum('7')">7</button>
+      <button onclick="appendNum('8')">8</button>
+      <button onclick="appendNum('9')">9</button>
+      <button onclick="appendNum('-')">-</button>
+      <button onclick="appendNum('0')">0</button>
+      <button onclick="delNum()">Del</button>
     </div>
 
     <button onclick="submitAnswer()">Submit</button>
     <button onclick="startGame()">Start</button>
+
     <div id="score">Score: 0 / 10</div>
     <div id="result" class="result"></div>
   </div>

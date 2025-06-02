@@ -1,7 +1,7 @@
 let currentAnswer = 0;
 let currentScore = 0;
 let questionCount = 0;
-const totalQuestions = 10;
+let totalQuestions = 10;
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -45,27 +45,21 @@ function generateQuestion() {
   }
 
   op = ops[Math.floor(Math.random() * ops.length)];
-  if (op === '/' && num2 === 0) num2 = 1;
+  let question = `${num1} ${op} ${num2}`;
+  currentAnswer = eval(question);
+  currentAnswer = Math.round(currentAnswer * 100) / 100;
 
-  switch (op) {
-    case '+': currentAnswer = num1 + num2; break;
-    case '-': currentAnswer = num1 - num2; break;
-    case '*': currentAnswer = num1 * num2; break;
-    case '/': currentAnswer = Math.round((num1 / num2) * 100) / 100; break;
-  }
-
-  document.getElementById('question').textContent = `What is ${num1} ${op} ${num2}?`;
+  document.getElementById('question').textContent = `${question}`;
   document.getElementById('result').textContent = '';
   document.getElementById('answer').value = '';
 }
 
 function submitAnswer() {
-  const userInput = document.getElementById('answer').value;
-  const userAnswer = parseFloat(userInput);
+  const userAnswer = parseFloat(document.getElementById('answer').value);
   const result = document.getElementById('result');
 
   if (isNaN(userAnswer)) {
-    result.textContent = "Masukan Angkanya";
+    result.textContent = "Masukkan angkanya!";
     result.style.color = "yellow";
     return;
   }
@@ -86,8 +80,7 @@ function submitAnswer() {
     setTimeout(generateQuestion, 1000);
   } else {
     setTimeout(() => {
-      document.getElementById('question').textContent =
-        `Game Selesai, Skor Akhir ${currentScore * 10}/${totalQuestions * 10}`;
+      document.getElementById('question').textContent = `Game Selesai, Skor Akhir ${currentScore * 10}/${totalQuestions * 10}`;
       document.getElementById('result').textContent = '';
     }, 1000);
   }
@@ -104,12 +97,11 @@ function startGame() {
   generateQuestion();
 }
 
-function appendToAnswer(val) {
-  const input = document.getElementById('answer');
-  input.value += val;
+function appendNum(value) {
+  document.getElementById('answer').value += value;
 }
 
-function deleteLast() {
+function delNum() {
   const input = document.getElementById('answer');
   input.value = input.value.slice(0, -1);
 }

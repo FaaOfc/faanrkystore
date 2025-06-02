@@ -1,7 +1,7 @@
 let currentAnswer = 0;
 let currentScore = 0;
 let questionCount = 0;
-let totalQuestions = 10;
+const totalQuestions = 10;
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,12 +12,12 @@ function generateQuestion() {
   let num1, num2, op, ops;
 
   switch (mode) {
-    case 'easy':
+    case 'baby':
       num1 = getRandomInt(1, 10);
       num2 = getRandomInt(1, 10);
       ops = ['+'];
       break;
-    case 'medium':
+    case 'noob':
       num1 = getRandomInt(10, 50);
       num2 = getRandomInt(1, 10);
       ops = ['+', '-'];
@@ -27,31 +27,41 @@ function generateQuestion() {
       num2 = getRandomInt(10, 100);
       ops = ['+', '-', '*'];
       break;
-    case 'hard':
+    case 'pro':
       num1 = getRandomInt(50, 200);
       num2 = getRandomInt(1, 20);
       ops = ['+', '-', '*', '/'];
       break;
-    case 'impossible':
-      num1 = getRandomInt(100, 999);
-      num2 = getRandomInt(1, 99);
+    case 'sepuh':
+      num1 = getRandomInt(1000, 9999);
+      num2 = getRandomInt(1, 999);
+      ops = ['+', '-', '*', '/'];
+      break;
+    case 'dewa':
+      num1 = getRandomInt(10000, 99999);
+      num2 = getRandomInt(1, 9999);
       ops = ['+', '-', '*', '/'];
       break;
   }
 
   op = ops[Math.floor(Math.random() * ops.length)];
+  if (op === '/' && num2 === 0) num2 = 1;
 
-  let question = `${num1} ${op} ${num2}`;
-  currentAnswer = eval(question);
-  currentAnswer = Math.round(currentAnswer * 100) / 100;
+  switch (op) {
+    case '+': currentAnswer = num1 + num2; break;
+    case '-': currentAnswer = num1 - num2; break;
+    case '*': currentAnswer = num1 * num2; break;
+    case '/': currentAnswer = Math.round((num1 / num2) * 100) / 100; break;
+  }
 
-  document.getElementById('question').textContent = `What is ${question}?`;
+  document.getElementById('question').textContent = `What is ${num1} ${op} ${num2}?`;
   document.getElementById('result').textContent = '';
   document.getElementById('answer').value = '';
 }
 
 function submitAnswer() {
-  const userAnswer = parseFloat(document.getElementById('answer').value);
+  const userInput = document.getElementById('answer').value;
+  const userAnswer = parseFloat(userInput);
   const result = document.getElementById('result');
 
   if (isNaN(userAnswer)) {
@@ -76,7 +86,8 @@ function submitAnswer() {
     setTimeout(generateQuestion, 1000);
   } else {
     setTimeout(() => {
-      document.getElementById('question').textContent = `Game Selesai, Skor Akhir ${currentScore * 10}/${totalQuestions * 10}`;
+      document.getElementById('question').textContent =
+        `Game Selesai, Skor Akhir ${currentScore * 10}/${totalQuestions * 10}`;
       document.getElementById('result').textContent = '';
     }, 1000);
   }
@@ -93,3 +104,12 @@ function startGame() {
   generateQuestion();
 }
 
+function appendToAnswer(val) {
+  const input = document.getElementById('answer');
+  input.value += val;
+}
+
+function deleteLast() {
+  const input = document.getElementById('answer');
+  input.value = input.value.slice(0, -1);
+}

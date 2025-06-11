@@ -129,7 +129,7 @@ body {
   font-family: 'Bungee', cursive;
   display: block;
   padding: 10px;
-  background: black;
+  background: linear-gradient(135deg, #805ad5, #667eea);
   color: white;
   border-radius: 20px;
   text-decoration: none;

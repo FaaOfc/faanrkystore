@@ -273,8 +273,8 @@ function renderExtraInputs() {
 
   if (code.startsWith("dm-ml") || code === "wdp") {
     customInputs.innerHTML = `
-      <input type="text" id="inputID" placeholder="Masukkan ID Game" required>
-      <input type="text" id="inputServer" placeholder="Masukkan ID Server" required>
+      <input type="number" id="inputID" placeholder="Masukkan ID Game" required>
+      <input type="number" id="inputServer" placeholder="Masukkan ID Server" required>
     `;
   } else if (code === "cp") {
     customInputs.innerHTML = `

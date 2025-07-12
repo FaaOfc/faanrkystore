@@ -28,7 +28,7 @@ body {
   padding: 20px;
 }
 
-.payment-box {
+.info-box {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 20px;
@@ -70,7 +70,7 @@ textarea:focus {
   box-shadow: 0 0 6px var(--secondary-color);
 }
 
-.info-box {
+.info-boxx {
   background-color: var(--link-bg);
   border-radius: 12px;
   padding: 20px;
